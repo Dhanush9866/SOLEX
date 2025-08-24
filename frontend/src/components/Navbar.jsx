@@ -36,7 +36,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/logo.png" 
+{/*               src="/logo.png"  */}
               alt="SkillTwin Logo" 
               className="h-10 w-auto"
             />
