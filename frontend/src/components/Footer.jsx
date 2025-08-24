@@ -10,11 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <img 
-                src="/logo.png" 
-                alt="SkillTwin Logo" 
-                className="h-8 w-auto"
-              />
+             
               <span className="font-bold text-xl text-black">SOLNEX</span>
             </div>
             <p className="text-gray-700 text-sm">
