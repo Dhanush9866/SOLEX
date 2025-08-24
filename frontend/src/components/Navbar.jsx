@@ -35,11 +35,6 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img 
-{/*               src="/logo.png"  */}
-              alt="SkillTwin Logo" 
-              className="h-10 w-auto"
-            />
             <span className="font-bold text-xl text-gray-900">Solnex Solutions Industries</span>
           </Link>
 
