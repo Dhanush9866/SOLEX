@@ -221,40 +221,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-white">
-              Why Enterprises Choose SOLNEX
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Clock className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-300">24/7 AI Support</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Our AI experts are available around the clock to provide technical assistance and optimization.
-              </p>
-            </div>
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-300">Proven AI Expertise</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                With hundreds of successful AI implementations, our solutions are tested and proven effective.
-              </p>
-            </div>
-            <div className="text-center">
-              <Users className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-300">Expert AI Team</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Our AI specialists are industry veterans with decades of combined experience in machine learning and AI.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Link */}
       <div className="flex justify-center py-12">
         <div className="relative w-full max-w-xl">

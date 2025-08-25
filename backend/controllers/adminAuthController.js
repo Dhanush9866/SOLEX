@@ -39,7 +39,7 @@ exports.adminRegister = async (req, res) => {
     // Generate token
     const token = jwt.sign(
       { adminId: admin._id, role: "admin" },
-      process.env.JWT_SECRET || "SkillTwinJWT@123",
+      process.env.JWT_SECRET || "SolnexJWT@123",
       { expiresIn: "3d" }
     );
 
@@ -88,7 +88,7 @@ exports.adminLogin = async (req, res) => {
     // If both email and password are correct, generate token
     const token = jwt.sign(
       { adminId: admin._id, role: "admin" },
-      process.env.JWT_SECRET || "SkillTwinJWT@123",
+      process.env.JWT_SECRET || "SolnexJWT@123",
       { expiresIn: "3d" }
     );
 

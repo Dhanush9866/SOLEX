@@ -1,8 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, MessageCircle, Send } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Footer = () => {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const handleTrainingsClick = (e) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      // Navigate to login page with state indicating user wants to access trainings
+      navigate('/login', { state: { fromTrainings: true } });
+    }
+  };
+
   return (
     <footer className="bg-white border-t border-blue-100 text-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -10,43 +22,19 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-             
+
               <span className="font-bold text-xl text-black">SOLNEX</span>
             </div>
             <p className="text-gray-700 text-sm">
               Engineering the future with software intelligence - building enterprise-grade AI, ML, and Generative AI solutions.
             </p>
-            <div className="flex space-x-4">
-              <Button 
-                variant="solid" 
-                size="sm" 
-                className="bg-[#25D366] hover:bg-[#1DA851] text-black font-bold"
-                asChild
-              >
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-2 text-black" />
-                  WhatsApp
-                </a>
-              </Button>
-              <Button 
-                variant="solid" 
-                size="sm" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold"
-                asChild
-              >
-                <a href="https://t.me/solnex" target="_blank" rel="noopener noreferrer">
-                  <Send className="h-4 w-4 mr-2" />
-                  Telegram
-                </a>
-              </Button>
-            </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="font-semibold text-lg text-black">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Trainings', 'Contact'].map((item) => (
+              {['Home', 'About', 'Services', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
@@ -56,6 +44,15 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link 
+                  to="/trainings"
+                  onClick={handleTrainingsClick}
+                  className="text-gray-700 hover:text-blue-700 text-sm transition-colors font-medium"
+                >
+                  Trainings
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -100,7 +97,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-blue-100 mt-8 pt-8 text-center">
           <p className="text-gray-500 text-sm">
-            © 2024 SOLNEX. All rights reserved. | Privacy Policy | Terms of Service
+            © 2025 SOLNEX. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

@@ -44,6 +44,7 @@ const Register = () => {
   const { toast } = useToast();
   const fromContact = location.state && location.state.fromContact;
   const fromServiceInquiry = location.state && location.state.fromServiceInquiry;
+  const fromTrainings = location.state && location.state.fromTrainings;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const hadError = !!error;
@@ -140,32 +141,25 @@ const Register = () => {
     setLoading(true);
 
     try {
-      // DUMMY REGISTRATION FOR TESTING (uncomment to use)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      if (formData.name && formData.email && formData.password) {
-        login("dummy-jwt-token-456", { name: formData.name, email: formData.email });
-        toast({
-          title: "Registration Successful!",
-          description: "Welcome to SkillTwin! Your account has been created.",
-        });
-        navigate("/");
-        return;
-      } else {
-        throw new Error("Please fill in all required fields");
-      }
-
       // REAL API CALL
-      // const { confirmPassword, ...registerData } = formData;
-      // const response = await apiService.register(registerData);
-      // login(response.token, { name: formData.name, email: formData.email });
-
+      const { confirmPassword, ...registerData } = formData;
+      const response = await apiService.register(registerData);
+      
+      // Login the user with the received token
+      login(response.token, { name: formData.name, email: formData.email });
+      
       // Show success toast
       toast({
         title: "Registration Successful!",
-        description: "Welcome to SkillTwin! Your account has been created.",
+        description: "Welcome to Solnex! Your account has been created.",
       });
 
-      navigate("/trainings");
+      // Redirect based on where user was trying to go
+      if (fromTrainings) {
+        navigate("/trainings");
+      } else {
+        navigate("/");
+      }
     } catch (err: any) {
       const errorMessage =
         err.message || "Registration failed. Please try again.";
@@ -200,7 +194,7 @@ const Register = () => {
   const passwordStrength = getPasswordStrength(formData.password);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300">
       {fromContact && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
           <Alert>
@@ -219,14 +213,23 @@ const Register = () => {
           </Alert>
         </div>
       )}
-      <Card className="w-full max-w-md shadow-xl border-0 bg-white dark:bg-white">
+      {fromTrainings && (
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
+          <Alert>
+            <AlertDescription>
+              Please register or log in to access our training programs.
+            </AlertDescription>
+          </Alert>
+        </div>
+      )}
+      <Card className="w-full max-w-md shadow-xl border-0 bg-white">
         <CardHeader className="space-y-1 text-center">
           <div className="mx-auto w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-300 rounded-full flex items-center justify-center mb-4">
             <User className="w-6 h-6 text-blue-700" />
           </div>
-          <CardTitle className="text-2xl font-bold text-black dark:text-gray-900">Create Account</CardTitle>
-          <CardDescription className="text-gray-700 dark:text-gray-700">
-            Register for a SkillTwin account
+          <CardTitle className="text-2xl font-bold text-black">Create Account</CardTitle>
+          <CardDescription className="text-gray-700">
+            Register for a Solnex account
           </CardDescription>
         </CardHeader>
 
@@ -239,7 +242,7 @@ const Register = () => {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-sm font-medium dark:text-gray-900">
+              <Label htmlFor="name" className="text-sm font-medium">
                 Full Name
               </Label>
               <div className="relative">
@@ -258,7 +261,7 @@ const Register = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium dark:text-gray-900">
+              <Label htmlFor="email" className="text-sm font-medium">
                 Email Address
               </Label>
               <div className="relative">
@@ -277,7 +280,7 @@ const Register = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium dark:text-gray-900">
+              <Label htmlFor="password" className="text-sm font-medium">
                 Password
               </Label>
               <div className="relative">
@@ -330,7 +333,7 @@ const Register = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-sm font-medium dark:text-gray-900">
+              <Label htmlFor="confirmPassword" className="text-sm font-medium">
                 Confirm Password
               </Label>
               <div className="relative">
@@ -391,18 +394,18 @@ const Register = () => {
                   setAcceptTerms(checked as boolean)
                 }
               />
-              <Label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-700">
+              <Label htmlFor="terms" className="text-sm text-gray-600">
                 I agree to the{" "}
                 <Link
                   to="/terms"
-                  className="text-blue-600 hover:text-blue-800 underline dark:text-blue-600 dark:hover:text-blue-700"
+                  className="text-blue-600 hover:text-blue-800 underline"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   to="/privacy"
-                  className="text-blue-600 hover:text-blue-800 underline dark:text-blue-600 dark:hover:text-blue-700"
+                  className="text-blue-600 hover:text-blue-800 underline"
                 >
                   Privacy Policy
                 </Link>
@@ -411,7 +414,7 @@ const Register = () => {
 
             <Button
               type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold dark:bg-green-700 dark:hover:bg-green-800"
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold"
               disabled={loading}
             >
               {loading ? 'Creating account...' : 'Sign Up'}
@@ -419,11 +422,11 @@ const Register = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-700">
+            <p className="text-sm text-gray-600">
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-blue-600 hover:text-blue-800 font-medium underline dark:text-blue-600 dark:hover:text-blue-700"
+                className="text-blue-600 hover:text-blue-800 font-medium underline"
               >
                 Sign in here
               </Link>

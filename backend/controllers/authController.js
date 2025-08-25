@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
     await user.save();
     const token = jwt.sign(
       { userId: user._id, role: user.role },
-      process.env.JWT_SECRET || "SkillTwinJWT@123",
+      process.env.JWT_SECRET || "SolnexJWT@123",
       { expiresIn: "3d" }
     );
     res.status(201).json({ token });
@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
     }
     const token = jwt.sign(
       { userId: user._id, role: user.role },
-      process.env.JWT_SECRET || "SkillTwinJWT@123",
+      process.env.JWT_SECRET || "SolnexJWT@123",
       { expiresIn: "3d" }
     );
     res.json({ token });

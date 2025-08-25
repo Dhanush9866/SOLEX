@@ -101,6 +101,14 @@ const Services = () => {
     }
   };
 
+  const handleTrainingsClick = (e) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      // Navigate to login page with state indicating user wants to access trainings
+      navigate('/login', { state: { fromTrainings: true } });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -371,10 +379,10 @@ const Services = () => {
             <Button
               size="lg"
               variant="outline"
-              className="bg-white text-blue-700 border-blue-700 hover:bg-blue-50 font-bold dark:bg-[#23272f] dark:text-blue-300 dark:border-blue-300 dark:hover:bg-[#23272f]"
+              className="bg-white text-blue-700 border-blue-700 hover:bg-blue-50 font-bold dark:bg-[#23272f] dark:text-blue-300 dark:border-blue-300 dark:hover:bg-[#2a2f3a]"
               asChild
             >
-              <Link to="/trainings">View AI Training Programs</Link>
+              <Link to="/trainings" onClick={handleTrainingsClick}>View AI Training Programs</Link>
             </Button>
           </div>
         </div>
