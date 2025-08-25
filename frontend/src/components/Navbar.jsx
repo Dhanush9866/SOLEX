@@ -31,8 +31,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
+
            
             <span className="font-bold text-xl text-gray-900">Solnex</span>
+
+           
           </Link>
 
           {/* Desktop Navigation */}
