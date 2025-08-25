@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Trainings from "./pages/Trainings";
 import TrainingDetail from "./pages/TrainingDetail";
 import Contact from "./pages/Contact";
+import Industries from "./pages/Industries";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,22 +18,31 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ScrollToTop from "./components/ScrollToTop";
-import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 const queryClient = new QueryClient();
 
 const AppContent = () => {
-  const { theme } = useTheme();
   return (
-    <div className={`min-h-screen flex flex-col ${theme}`}>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/trainings" element={<Trainings />} />
-          <Route path="/trainings/:id" element={<TrainingDetail />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/trainings" element={
+            <ProtectedRoute>
+              <Trainings />
+            </ProtectedRoute>
+          } />
+          <Route path="/trainings/:id" element={
+            <ProtectedRoute>
+              <TrainingDetail />
+            </ProtectedRoute>
+          } />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
@@ -48,16 +58,14 @@ const AppContent = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <ThemeProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <AppContent />
-          </BrowserRouter>
-        </TooltipProvider>
-      </ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <AppContent />
+        </BrowserRouter>
+      </TooltipProvider>
     </AuthProvider>
   </QueryClientProvider>
 );

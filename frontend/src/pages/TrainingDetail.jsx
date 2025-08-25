@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,12 +38,20 @@ const TrainingDetail = () => {
     }
   );
 
+  const handleTrainingsClick = (e) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      // Navigate to login page with state indicating user wants to access trainings
+      navigate('/login', { state: { fromTrainings: true } });
+    }
+  };
+
   if (!program) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Program Not Found</h1>
-          <Link to="/trainings">
+          <Link to="/trainings" onClick={handleTrainingsClick}>
             <Button>Back to Trainings</Button>
           </Link>
         </div>
@@ -81,7 +90,7 @@ const TrainingDetail = () => {
       {/* Back Button */}
       <div className="bg-gradient-to-br from-blue-100 to-blue-300 py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/trainings" className="inline-flex items-center text-blue-700 hover:text-blue-900 font-bold mb-4">
+          <Link to="/trainings" onClick={handleTrainingsClick} className="inline-flex items-center text-blue-700 hover:text-blue-900 font-bold mb-4">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Training Programs
           </Link>

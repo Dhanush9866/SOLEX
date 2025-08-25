@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -28,8 +28,12 @@ const Login = () => {
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
   const { toast } = useToast();
+  
+  // Check if user was trying to access trainings
+  const fromTrainings = location.state && location.state.fromTrainings;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const hadError = !!error;
@@ -57,31 +61,24 @@ const Login = () => {
     setLoading(true);
 
     try {
-      // DUMMY LOGIN FOR TESTING (uncomment to use)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      if (formData.email && formData.password) {
-        login("dummy-jwt-token-123", { email: formData.email });
-        toast({
-          title: "Login Successful!",
-          description: "Welcome back to SkillTwin.",
-        });
-        navigate("/");
-        return;
-      } else {
-        throw new Error("Please fill in all fields");
-      }
-
       // REAL API CALL
-      // const response = await apiService.login(formData);
-      // login(response.token, { email: formData.email });
+      const response = await apiService.login(formData);
+      
+      // Login the user with the received token
+      login(response.token, { email: formData.email });
+      
+      // Show success toast
+      toast({
+        title: "Login Successful!",
+        description: "Welcome back to Solnex.",
+      });
 
-      // // Show success toast
-      // toast({
-      //   title: "Login Successful!",
-      //   description: "Welcome back to SkillTwin.",
-      // });
-
-      navigate("/");
+      // Redirect based on where user was trying to go
+      if (fromTrainings) {
+        navigate("/trainings");
+      } else {
+        navigate("/");
+      }
     } catch (err: any) {
       const errorMessage = err.message || "Login failed. Please try again.";
       setError(errorMessage);
@@ -99,17 +96,26 @@ const Login = () => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:bg-gradient-to-br dark:from-gray-900 dark:via-[#23272f] dark:to-gray-800 p-4">
-        <Card className="w-full max-w-md shadow-xl border-0 bg-white dark:bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">
+        {fromTrainings && (
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
+            <Alert>
+              <AlertDescription>
+                Please log in to access our training programs.
+              </AlertDescription>
+            </Alert>
+          </div>
+        )}
+        <Card className="w-full max-w-md shadow-xl border-0 bg-white">
           <CardHeader className="space-y-1 text-center">
             <div className="mx-auto w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-4">
               <Mail className="w-6 h-6 text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:text-gray-900">
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Welcome Back
             </CardTitle>
-            <CardDescription className="text-gray-600 dark:text-gray-700">
-              Sign in to your SkillTwin account
+            <CardDescription className="text-gray-600">
+              Sign in to your Solnex account
             </CardDescription>
           </CardHeader>
 
@@ -122,7 +128,7 @@ const Login = () => {
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium dark:text-gray-900">
+                <Label htmlFor="email" className="text-sm font-medium">
                   Email Address
                 </Label>
                 <div className="relative">
@@ -141,7 +147,7 @@ const Login = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium dark:text-gray-900">
+                <Label htmlFor="password" className="text-sm font-medium">
                   Password
                 </Label>
                 <div className="relative">
@@ -179,14 +185,14 @@ const Login = () => {
                     id="remember"
                     className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
-                  <Label htmlFor="remember" className="text-sm text-gray-600 dark:text-gray-700">
+                  <Label htmlFor="remember" className="text-sm text-gray-600">
                     Remember me
                   </Label>
                 </div>
                 <button
                   type="button"
                   onClick={() => setForgotPasswordOpen(true)}
-                  className="text-sm text-blue-600 hover:text-blue-800 underline dark:text-blue-600 dark:hover:text-blue-700"
+                  className="text-sm text-blue-600 hover:text-blue-800 underline"
                 >
                   Forgot password?
                 </button>
@@ -194,7 +200,7 @@ const Login = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 dark:from-blue-700 dark:to-purple-700 dark:hover:from-blue-800 dark:hover:to-purple-800"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
                 disabled={loading}
               >
                 {loading ? (
@@ -212,11 +218,11 @@ const Login = () => {
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-700">
+              <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
                 <Link
                   to="/register"
-                  className="text-blue-600 hover:text-blue-800 font-medium underline dark:text-blue-600 dark:hover:text-blue-700"
+                  className="text-blue-600 hover:text-blue-800 font-medium underline"
                 >
                   Sign up here
                 </Link>

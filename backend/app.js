@@ -15,7 +15,7 @@ const configDB = require("./config/db");
 require("dotenv").config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({ origin: "*", credentials: true }));
@@ -39,8 +39,6 @@ app.get("/", (req, res) => {
   res.send("Server ok");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
 configDB();
+
+module.exports = app;
