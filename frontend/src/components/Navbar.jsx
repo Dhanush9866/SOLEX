@@ -30,12 +30,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-
-           
-            <span className="font-bold text-xl text-gray-900">Solnex</span>
-
-           
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg">
+              <img 
+                src="/logo.png" 
+                alt="SOLNEX Logo" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-bold text-xl text-gray-900">SOLNEX</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -10,6 +10,8 @@ const adminRoutes = require("./routes/admin");
 const adminAuthRoutes = require("./routes/adminAuth");
 const contactRoutes = require("./routes/contact");
 const serviceInquiryRoutes = require("./routes/serviceInquiry");
+const industryRoutes = require("./routes/industries");
+const trainingRoutes = require("./routes/trainings");
 const { errorHandler } = require("./middleware/errorHandler");
 const configDB = require("./config/db");
 require("dotenv").config();
@@ -31,6 +33,8 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/admin", adminAuthRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/service-inquiry", serviceInquiryRoutes);
+app.use("/api/admin/industries", industryRoutes);
+app.use("/api/admin/trainings", trainingRoutes);
 
 // Error Handler
 app.use(errorHandler);
@@ -38,7 +42,5 @@ app.use(errorHandler);
 app.get("/", (req, res) => {
   res.send("Server ok");
 });
-
-configDB();
 
 module.exports = app;

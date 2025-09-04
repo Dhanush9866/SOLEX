@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { authAPI } from '../services/api';
 
 interface User {
   email: string;
@@ -9,7 +10,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   user: User | null;
-  login: (token: string, userData: User) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -33,32 +34,43 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // Check if user is already logged in (e.g., check localStorage or cookies)
-    const token = localStorage.getItem('admin_token');
-    const userData = localStorage.getItem('admin_user');
-    
-    if (token && userData) {
-      try {
-        const parsedUser = JSON.parse(userData);
-        setUser(parsedUser);
-        setIsAuthenticated(true);
-      } catch (error) {
-        console.error('Error parsing user data:', error);
-        localStorage.removeItem('admin_token');
-        localStorage.removeItem('admin_user');
+    const verifyAuth = async () => {
+      const token = localStorage.getItem('admin_token');
+      const userData = localStorage.getItem('admin_user');
+      
+      if (token && userData) {
+        try {
+          // Verify token with backend
+          const response = await authAPI.verifyToken();
+          const parsedUser = JSON.parse(userData);
+          setUser(parsedUser);
+          setIsAuthenticated(true);
+        } catch (error) {
+          console.error('Token verification failed:', error);
+          localStorage.removeItem('admin_token');
+          localStorage.removeItem('admin_user');
+        }
       }
-    }
-    
-    setIsLoading(false);
+      
+      setIsLoading(false);
+    };
+
+    verifyAuth();
   }, []);
 
-  const login = async (token: string, userData: User) => {
-    // Store token and user data
-    localStorage.setItem('admin_token', token);
-    localStorage.setItem('admin_user', JSON.stringify(userData));
-    
-    setUser(userData);
-    setIsAuthenticated(true);
+  const login = async (email: string, password: string) => {
+    try {
+      const response = await authAPI.login({ email, password });
+      
+      // Store token and user data
+      localStorage.setItem('admin_token', response.token);
+      localStorage.setItem('admin_user', JSON.stringify(response.user));
+      
+      setUser(response.user);
+      setIsAuthenticated(true);
+    } catch (error) {
+      throw error;
+    }
   };
 
   const logout = () => {

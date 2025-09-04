@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
+import { usersAPI } from '../services/api';
 import {
   Users as UsersIcon,
   Plus,
@@ -26,50 +27,60 @@ const Users = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Simulate fetching users data
-    const mockUsers: User[] = [
-      {
-        id: '1',
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        role: 'admin',
-        status: 'active',
-        joinDate: '2024-01-15',
-        lastLogin: '2024-01-20',
-        industry: 'Technology'
-      },
-      {
-        id: '2',
-        name: 'Sarah Wilson',
-        email: 'sarah.wilson@example.com',
-        role: 'user',
-        status: 'active',
-        joinDate: '2024-01-10',
-        lastLogin: '2024-01-19',
-        industry: 'Healthcare'
-      },
-      {
-        id: '3',
-        name: 'Mike Johnson',
-        email: 'mike.johnson@example.com',
-        role: 'user',
-        status: 'inactive',
-        joinDate: '2024-01-05',
-        lastLogin: '2024-01-15',
-        industry: 'Finance'
-      },
-      {
-        id: '4',
-        name: 'Emily Brown',
-        email: 'emily.brown@example.com',
-        role: 'moderator',
-        status: 'active',
-        joinDate: '2024-01-12',
-        lastLogin: '2024-01-20',
-        industry: 'Education'
+    const fetchUsers = async () => {
+      try {
+        const usersData = await usersAPI.getAll();
+        setUsers(usersData);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+        // Fallback to mock data if API fails
+        const mockUsers: User[] = [
+          {
+            id: '1',
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            role: 'admin',
+            status: 'active',
+            joinDate: '2024-01-15',
+            lastLogin: '2024-01-20',
+            industry: 'Technology'
+          },
+          {
+            id: '2',
+            name: 'Sarah Wilson',
+            email: 'sarah.wilson@example.com',
+            role: 'user',
+            status: 'active',
+            joinDate: '2024-01-10',
+            lastLogin: '2024-01-19',
+            industry: 'Healthcare'
+          },
+          {
+            id: '3',
+            name: 'Mike Johnson',
+            email: 'mike.johnson@example.com',
+            role: 'user',
+            status: 'inactive',
+            joinDate: '2024-01-05',
+            lastLogin: '2024-01-15',
+            industry: 'Finance'
+          },
+          {
+            id: '4',
+            name: 'Emily Brown',
+            email: 'emily.brown@example.com',
+            role: 'moderator',
+            status: 'active',
+            joinDate: '2024-01-12',
+            lastLogin: '2024-01-20',
+            industry: 'Education'
+          }
+        ];
+        setUsers(mockUsers);
       }
-    ];
-    setUsers(mockUsers);
+    };
+
+    fetchUsers();
   }, []);
 
   const filteredUsers = users.filter(user =>
@@ -77,8 +88,14 @@ const Users = () => {
     user.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleDeleteUser = (userId: string) => {
-    setUsers(users.filter(user => user.id !== userId));
+  const handleDeleteUser = async (userId: string) => {
+    try {
+      await usersAPI.delete(userId);
+      setUsers(users.filter(user => user.id !== userId));
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      // You might want to show a toast notification here
+    }
   };
 
   const getStatusBadge = (status: string) => {

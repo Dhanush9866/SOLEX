@@ -45,7 +45,7 @@ exports.adminRegister = async (req, res) => {
 
     res.status(201).json({
       token,
-      admin: {
+      user: {
         id: admin._id,
         email: admin.email,
         name: admin.name,
@@ -94,7 +94,7 @@ exports.adminLogin = async (req, res) => {
 
     res.json({
       token,
-      admin: {
+      user: {
         id: admin._id,
         email: admin.email,
         name: admin.name,
@@ -245,6 +245,29 @@ exports.checkEmailExists = async (req, res) => {
     });
   } catch (err) {
     console.error("Email check error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.verifyToken = async (req, res) => {
+  try {
+    // The token is already verified by the middleware
+    // We just need to return the admin info
+    const admin = await Admin.findById(req.adminId);
+    if (!admin) {
+      return res.status(404).json({ message: "Admin not found" });
+    }
+
+    res.json({
+      user: {
+        id: admin._id,
+        email: admin.email,
+        name: admin.name,
+        role: admin.role,
+      },
+    });
+  } catch (err) {
+    console.error("Token verification error:", err);
     res.status(500).json({ message: "Server error" });
   }
 };

@@ -21,9 +21,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-
-              <span className="font-bold text-xl text-black">SOLNEX</span>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/logo.png" 
+                  alt="SOLNEX Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="font-bold text-2xl text-black">SOLNEX</span>
             </div>
             <p className="text-gray-700 text-sm">
               Engineering the future with software intelligence - building enterprise-grade AI, ML, and Generative AI solutions.
@@ -34,7 +40,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-lg text-black">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Contact'].map((item) => (
+              {['Home', 'About', 'Solutions', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
@@ -56,7 +62,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services
           <div className="space-y-4">
             <h3 className="font-semibold text-lg text-black">Services</h3>
             <ul className="space-y-2">
@@ -72,7 +78,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div className="space-y-4">

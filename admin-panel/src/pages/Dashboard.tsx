@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import { dashboardAPI } from '../services/api';
 import {
   Users,
   Building2,
@@ -35,23 +36,37 @@ const Dashboard = () => {
   const [recentActivity, setRecentActivity] = useState<ActivityItem[]>([]);
 
   useEffect(() => {
-    // Simulate fetching data
-    setStats({
-      totalUsers: 1247,
-      totalIndustries: 14,
-      totalTrainings: 8,
-      totalInquiries: 89,
-      totalEnrollments: 156,
-      monthlyRevenue: 45600,
-      growthRate: 23.5
-    });
+    const fetchDashboardData = async () => {
+      try {
+        const [statsData, activityData] = await Promise.all([
+          dashboardAPI.getStats(),
+          dashboardAPI.getRecentActivity()
+        ]);
+        
+        setStats(statsData);
+        setRecentActivity(activityData);
+      } catch (error) {
+        console.error('Error fetching dashboard data:', error);
+        // Fallback to mock data if API fails
+        setStats({
+          totalUsers: 1247,
+          totalIndustries: 14,
+          totalTrainings: 8,
+          totalInquiries: 89,
+          totalEnrollments: 156,
+          monthlyRevenue: 45600,
+          growthRate: 23.5
+        });
+        setRecentActivity([
+          { id: 1, type: 'user', message: 'New user registration: john.doe@example.com', time: '2 minutes ago' },
+          { id: 2, type: 'enrollment', message: 'New training enrollment: AI Fundamentals', time: '15 minutes ago' },
+          { id: 3, type: 'inquiry', message: 'New service inquiry from TechCorp', time: '1 hour ago' },
+          { id: 4, type: 'user', message: 'User profile updated: sarah.wilson@example.com', time: '2 hours ago' }
+        ]);
+      }
+    };
 
-    setRecentActivity([
-      { id: 1, type: 'user', message: 'New user registration: john.doe@example.com', time: '2 minutes ago' },
-      { id: 2, type: 'enrollment', message: 'New training enrollment: AI Fundamentals', time: '15 minutes ago' },
-      { id: 3, type: 'inquiry', message: 'New service inquiry from TechCorp', time: '1 hour ago' },
-      { id: 4, type: 'user', message: 'User profile updated: sarah.wilson@example.com', time: '2 hours ago' }
-    ]);
+    fetchDashboardData();
   }, []);
 
   const getActivityIcon = (type: string) => {
