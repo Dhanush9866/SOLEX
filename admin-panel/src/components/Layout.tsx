@@ -64,8 +64,12 @@ const Layout = ({ children }: LayoutProps) => {
           {/* Logo Section */}
           <div className="flex items-center justify-between h-20 px-6 border-b border-blue-200/50 dark:border-blue-800/50">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30">
-                <span className="text-white font-bold text-xl">S</span>
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden">
+                <img 
+                  src="/logo.png" 
+                  alt="SOLNEX Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h1 className="text-2xl font-bold gradient-text">SOLNEX</h1>
@@ -137,14 +141,28 @@ const Layout = ({ children }: LayoutProps) => {
         {/* Top header */}
         <header className="sticky top-0 z-30 glass-effect border-b border-blue-200/50 dark:border-blue-800/50">
           <div className="flex items-center justify-between h-16 px-6">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden hover:bg-blue-100/50 dark:hover:bg-blue-900/30"
-            >
-              <Menu className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-            </Button>
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setSidebarOpen(true)}
+                className="lg:hidden hover:bg-blue-100/50 dark:hover:bg-blue-900/30"
+              >
+                <Menu className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              </Button>
+              
+              {/* Mobile Logo */}
+              <div className="lg:hidden flex items-center space-x-3">
+                <div className="w-8 h-8 rounded-xl overflow-hidden">
+                  <img 
+                    src="/logo.png" 
+                    alt="SOLNEX Logo" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="text-lg font-bold gradient-text">SOLNEX</span>
+              </div>
+            </div>
 
             <div className="flex items-center space-x-4">
               <div className="hidden md:flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400">

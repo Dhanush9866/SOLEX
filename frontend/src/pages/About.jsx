@@ -59,7 +59,12 @@ const About = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 dark:text-white">About SOLNEX</h1>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
-              Engineering the future with software intelligence - building enterprise-grade AI, ML, and Generative AI solutions.
+            
+
+SOLNEX INC is a technology-driven company focused on delivering Al-powered software, cloud solutions, and digital transformation services.
+We bring together expertise in Artificial
+Intelligence, Data & Analytics, and Software
+Engineering to help enterprises build scalable, intelligent, and future-ready systems
             </p>
           </div>
         </div>
@@ -124,6 +129,36 @@ const About = () => {
             <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
+                  <Users className="h-6 w-6 mr-3 text-blue-400" />
+                  Careers
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
+                  At SOLNEX, we believe our people are our greatest strength. We offer an environment where innovation, collaboration, and learning thrive. By joining us, you become part of a team that is shaping the future with Artificial Intelligence, Data, and Software Engineering solutions.
+                  <br />
+                  We provide opportunities to work on cutting-edge technologies, grow your skills with continuous learning programs, and contribute to impactful projects across industries. If you are passionate about solving real-world problems and want to build a career that makes a difference, SOLNEX is the place for you.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
+                  <Award className="h-6 w-6 mr-3 text-blue-400" />
+                  Leadership
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
+                  At SOLNEX, leadership means driving innovation with a clear vision, empowering teams to excel, and building trust with our clients and partners. Guided by strong values and forward-thinking strategy, our leadership team combines technology expertise, industry experience, and entrepreneurial spirit to position SOLNEX as a global force in AI and digital transformation.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
+              <CardHeader>
+                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
                   <Target className="h-6 w-6 mr-3 text-blue-400" />
                   Our Mission
                 </CardTitle>
@@ -146,10 +181,10 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-                  To be the leading AI solutions provider that transforms how enterprises operate 
-                  and compete in the digital age. We envision a world where every organization 
-                  can harness the power of AI to achieve unprecedented levels of efficiency, 
-                  innovation, and growth.
+                Our vision
+
+Our vision is to become a global leader in Artificial Intelligence, Data, and Digital Solutions, empowering enterprises and individuals to leverage technology for smarter decisions, intelligent automation, and sustainable growth.
+We aim to build future-ready innovations that bridge the gap between business and technology, transforming industries and creating lasting impact worldwide
                 </p>
               </CardContent>
             </Card>
@@ -246,3 +281,7 @@ const About = () => {
 };
 
 export default About;
+
+
+
+

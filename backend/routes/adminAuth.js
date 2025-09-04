@@ -6,8 +6,10 @@ const {
   adminForgotPassword,
   adminVerifyOTP,
   adminResetPassword,
+  verifyToken,
 } = require("../controllers/adminAuthController");
 const { body } = require("express-validator");
+const { authenticateJWT, isAdmin } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -16,6 +18,8 @@ router.post(
   [body("email").isEmail(), body("password").notEmpty()],
   adminLogin
 );
+
+router.get("/verify", authenticateJWT, isAdmin, verifyToken);
 
 router.post(
   "/register",

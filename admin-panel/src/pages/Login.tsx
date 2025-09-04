@@ -34,10 +34,8 @@ const Login = () => {
     setLoading(true);
 
     try {
-      // For demo purposes, accept any email/password combination
-      // In production, this would call your authentication API
       if (formData.email && formData.password) {
-        await login('demo-token', { email: formData.email });
+        await login(formData.email, formData.password);
         navigate('/dashboard');
       } else {
         throw new Error('Please enter both email and password');
@@ -143,7 +141,7 @@ const Login = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl py-3 px-4 border border-blue-200/50 dark:border-blue-800/50">
-              <span className="font-medium text-blue-600 dark:text-blue-400">Demo Credentials:</span> Use any email and password
+              <span className="font-medium text-blue-600 dark:text-blue-400">Admin Login:</span> Use your registered admin credentials
             </p>
           </div>
         </CardContent>
