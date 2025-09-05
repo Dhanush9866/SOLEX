@@ -1,92 +1,23 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Building2, Shield, TrendingUp, Users, Globe, Zap, GraduationCap, Home, Film, Utensils, Plane, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
 
 const Industries = () => {
-  const industryData = [
-    {
-      name: "Financial Services",
-      icon: Shield,
-      description: "Transform banking, insurance, and fintech with AI-powered risk assessment, fraud detection, and personalized financial services.",
-      benefits: ["Enhanced security & compliance", "Automated risk management", "Personalized customer experiences", "Real-time fraud detection"]
-    },
-    {
-      name: "Healthcare & Life Sciences",
-      icon: Users,
-      description: "Revolutionize patient care with AI-driven diagnostics, drug discovery, and personalized medicine solutions.",
-      benefits: ["Improved diagnostic accuracy", "Faster drug discovery", "Personalized treatment plans", "Operational efficiency"]
-    },
-    {
-      name: "Manufacturing",
-      icon: Building2,
-      description: "Optimize production with smart manufacturing, predictive maintenance, and quality control automation.",
-      benefits: ["Predictive maintenance", "Quality optimization", "Supply chain efficiency", "Cost reduction"]
-    },
-    {
-      name: "Retail",
-      icon: TrendingUp,
-      description: "Enhance customer experience with AI-powered recommendations, inventory management, and demand forecasting.",
-      benefits: ["Personalized recommendations", "Inventory optimization", "Customer behavior insights", "Omnichannel integration"]
-    },
-    {
-      name: "Telecommunications",
-      icon: Globe,
-      description: "Modernize networks with AI-driven network optimization, customer service automation, and predictive analytics.",
-      benefits: ["Network optimization", "Customer service automation", "Predictive analytics", "5G readiness"]
-    },
-    {
-      name: "Automotive",
-      icon: Zap,
-      description: "Accelerate innovation with autonomous driving, connected vehicles, and manufacturing automation.",
-      benefits: ["Autonomous driving", "Connected vehicles", "Manufacturing automation", "Safety enhancement"]
-    },
-    {
-      name: "Energy",
-      icon: Zap,
-      description: "Optimize energy production and distribution with smart grid solutions and renewable energy management.",
-      benefits: ["Smart grid optimization", "Renewable energy management", "Predictive maintenance", "Energy efficiency"]
-    },
-    {
-      name: "Infrastructure",
-      icon: Building2,
-      description: "Build smarter cities with IoT integration, predictive maintenance, and intelligent transportation systems.",
-      benefits: ["IoT integration", "Predictive maintenance", "Smart transportation", "Resource optimization"]
-    },
-    {
-      name: "Higher Education",
-      icon: GraduationCap,
-      description: "Transform learning with AI-powered personalized education, administrative automation, and research tools.",
-      benefits: ["Personalized learning", "Administrative automation", "Research acceleration", "Student engagement"]
-    },
-    {
-      name: "Smart Cities",
-      icon: Home,
-      description: "Create sustainable urban environments with intelligent infrastructure, traffic management, and public services.",
-      benefits: ["Intelligent infrastructure", "Traffic management", "Public service optimization", "Sustainability"]
-    },
-    {
-      name: "Media & Entertainment",
-      icon: Film,
-      description: "Enhance content creation with AI-powered recommendation engines, content analysis, and audience insights.",
-      benefits: ["Content recommendations", "Audience insights", "Content optimization", "Personalization"]
-    },
-    {
-      name: "Restaurants",
-      icon: Utensils,
-      description: "Optimize operations with AI-driven inventory management, customer preferences, and operational efficiency.",
-      benefits: ["Inventory optimization", "Customer preferences", "Operational efficiency", "Cost reduction"]
-    },
-    {
-      name: "Aviation & Travel",
-      icon: Plane,
-      description: "Enhance safety and efficiency with predictive maintenance, route optimization, and customer service automation.",
-      benefits: ["Predictive maintenance", "Route optimization", "Safety enhancement", "Customer service"]
-    },
-    {
-      name: "Insurance",
-      icon: ShieldCheck,
-      description: "Transform risk assessment with AI-powered underwriting, claims processing, and fraud detection.",
-      benefits: ["AI-powered underwriting", "Claims automation", "Fraud detection", "Risk assessment"]
-    }
+  const [activeIndustry, setActiveIndustry] = useState("financial-services");
+
+  const industries = [
+    "Financial Services",
+    "Healthcare & Life Sciences", 
+    "Manufacturing",
+    "Retail",
+    "Telecommunications",
+    "Automotive",
+    "Energy",
+    "Infrastructure",
+    "Higher Education",
+    "Smart Cities",
+    "Media & Entertainment",
+    "Restaurants",
+    "Aviation & Travel",
+    "Insurance"
   ];
 
   return (
@@ -103,46 +34,125 @@ const Industries = () => {
         </div>
       </section>
 
-      {/* Industries Grid */}
-      <section className="py-16 bg-gray-50 dark:bg-[#23272f]">
+      {/* Industries Layout (Sidebar + Content Grid) */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">Transforming Industries with AI</h2>
-            <p className="text-xl text-gray-700 dark:text-gray-300">
-              Discover how our solutions are revolutionizing operations across various sectors
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industryData.map((industry) => {
-              const IconComponent = industry.icon;
-              return (
-                <Card key={industry.name} className="hover:shadow-lg transition-all duration-300 hover:scale-105 border-black dark:border-white bg-white dark:bg-[#23272f] text-gray-900 dark:text-gray-100">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                      <IconComponent className="h-8 w-8 text-blue-600" />
-                    </div>
-                    <CardTitle className="text-xl dark:text-white">{industry.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4 dark:text-gray-300 text-center">
-                      {industry.description}
-                    </p>
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-sm text-blue-700 dark:text-blue-300 mb-2">Key Benefits:</h4>
-                      <ul className="space-y-1">
-                        {industry.benefits.map((benefit, index) => (
-                          <li key={index} className="text-sm text-gray-600 dark:text-gray-300 flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            {/* Sidebar */}
+            <aside className="lg:col-span-1 space-y-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Industries</h3>
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                {industries.map((industry, index) => (
+                  <li key={index}>
+                    <a
+                      href={`#${industry.toLowerCase().replace(/\s+/g, '-')}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveIndustry(industry.toLowerCase().replace(/\s+/g, '-'));
+                      }}
+                      className={`hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-2 ${
+                        activeIndustry === industry.toLowerCase().replace(/\s+/g, '-')
+                          ? "font-semibold text-blue-700 dark:text-blue-300"
+                          : ""
+                      }`}
+                    >
+                      {activeIndustry === industry.toLowerCase().replace(/\s+/g, '-') && (
+                        <span className="text-green-600">›</span>
+                      )}
+                      {industry}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+
+            {/* Content Grid - only show active industry */}
+            <div className="lg:col-span-3">
+              {activeIndustry === "financial-services" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Financial Services</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "healthcare-&-life-sciences" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Healthcare & Life Sciences</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "manufacturing" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Manufacturing</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "retail" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Retail</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "telecommunications" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Telecommunications</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "automotive" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Automotive</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "energy" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Energy</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "infrastructure" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Infrastructure</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "higher-education" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Higher Education</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "smart-cities" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Smart Cities</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "media-&-entertainment" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Media & Entertainment</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "restaurants" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Restaurants</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "aviation-&-travel" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Aviation & Travel</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+              {activeIndustry === "insurance" && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Insurance</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">Coming Soon....</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>

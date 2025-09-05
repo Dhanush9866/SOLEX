@@ -19,6 +19,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ScrollToTop from "./components/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Leadership from "./pages/Leadership";
+import Vision from "./pages/Vision";
+import Careers from "./pages/Careers";
 
 
 const queryClient = new QueryClient();
@@ -47,6 +50,9 @@ const AppContent = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/leadership" element={<Leadership />} />
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
