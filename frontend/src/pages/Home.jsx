@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate();
 
   const slides = [
     {
@@ -56,11 +54,6 @@ const Home = () => {
 
   const goToNext = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const handleCardClick = (industry) => {
-    // Navigate to solutions page with industry filter
-    navigate(`/solutions?industry=${industry.toLowerCase()}`);
   };
 
   return (
@@ -148,69 +141,101 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
+              Our Industry Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Delivering cutting-edge AI and technology solutions across diverse sectors
+              Tailored technology solutions for diverse industries, driving innovation and growth across sectors.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Healthcare Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-500 ease-out transform animate-fade-in-up cursor-pointer" 
-                 style={{ animationDelay: '0.1s' }}
-                 onClick={() => handleCardClick('healthcare')}>
-              <div className="h-48 bg-cover bg-center bg-no-repeat transition-transform duration-500 hover:scale-110" 
-                   style={{ backgroundImage: 'url(/main1.jpg)' }}>
+            <div 
+              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+              onClick={() => {
+                // TODO: Add route for Healthcare
+                console.log('Healthcare card clicked');
+              }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src="/main1.jpg"
+                  alt="Healthcare Solutions"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 transition-colors duration-300 hover:text-blue-600">Healthcare</h3>
-                <p className="text-gray-600 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Healthcare</h3>
+                <p className="text-gray-600 leading-relaxed">
                   AI is revolutionizing healthcare by enhancing diagnostic accuracy, predicting patient outcomes, and personalizing treatments. From early cancer detection to robotic-assisted surgery, AI is transforming medical care delivery.
                 </p>
               </div>
             </div>
 
             {/* Financial Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-500 ease-out transform animate-fade-in-up cursor-pointer" 
-                 style={{ animationDelay: '0.2s' }}
-                 onClick={() => handleCardClick('financial')}>
-              <div className="h-48 bg-cover bg-center bg-no-repeat transition-transform duration-500 hover:scale-110" 
-                   style={{ backgroundImage: 'url(/main2.jpg)' }}>
+            <div 
+              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+              onClick={() => {
+                // TODO: Add route for Financial
+                console.log('Financial card clicked');
+              }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src="/main2.jpg"
+                  alt="Financial Solutions"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 transition-colors duration-300 hover:text-blue-600">Financial</h3>
-                <p className="text-gray-600 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Financial</h3>
+                <p className="text-gray-600 leading-relaxed">
                   A large bank has introduced a new AI-Powered virtual assistant to provide personalized customer support at scale.
                 </p>
               </div>
             </div>
 
             {/* Automotive Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-500 ease-out transform animate-fade-in-up cursor-pointer" 
-                 style={{ animationDelay: '0.3s' }}
-                 onClick={() => handleCardClick('automotive')}>
-              <div className="h-48 bg-cover bg-center bg-no-repeat transition-transform duration-500 hover:scale-110" 
-                   style={{ backgroundImage: 'url(/main3.jpg)' }}>
+            <div 
+              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+              onClick={() => {
+                // TODO: Add route for Automotive
+                console.log('Automotive card clicked');
+              }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src="/main3.jpg"
+                  alt="Automotive Solutions"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 transition-colors duration-300 hover:text-blue-600">Automotive</h3>
-                <p className="text-gray-600 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Automotive</h3>
+                <p className="text-gray-600 leading-relaxed">
                   Applying machine learning models and real-time analytics, businesses can optimize servicing schedules, reduce downtime, and extend the life of machinery and vehicles.
                 </p>
               </div>
             </div>
 
-            {/* E-commerce Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-500 ease-out transform animate-fade-in-up cursor-pointer" 
-                 style={{ animationDelay: '0.4s' }}
-                 onClick={() => handleCardClick('ecommerce')}>
-              <div className="h-48 bg-cover bg-center bg-no-repeat transition-transform duration-500 hover:scale-110" 
-                   style={{ backgroundImage: 'url(/main4.jpg)' }}>
+            {/* Retail & E-commerce Card */}
+            <div 
+              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+              onClick={() => {
+                // TODO: Add route for Retail & E-commerce
+                console.log('Retail & E-commerce card clicked');
+              }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src="/main4.jpg"
+                  alt="E-commerce Solutions"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 transition-colors duration-300 hover:text-blue-600">E-commerce</h3>
-                <p className="text-gray-600 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Retail & E-commerce</h3>
+                <p className="text-gray-600 leading-relaxed">
                   AI-powered recommendation engines analyze user behavior and suggest products tailored to individual preferences, increasing conversion rates.
                 </p>
               </div>
@@ -218,6 +243,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Rest of the content can go here */}
     </div>
   );
 };
