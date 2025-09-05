@@ -10,28 +10,28 @@ const Home = () => {
       image: "/AI.jpg",
       title: "Engineering the Future with Software Intelligence",
       subtitle: "Building enterprise-grade AI, ML, and Generative AI solutions for tomorrow's digital leaders.",
-      overlay: "from-blue-900/80 to-purple-900/80"
+      // overlay: "from-blue-900/80 to-purple-900/80"
     },
     {
       id: 2,
       image: "/AI1.jpg",
       title: "AI-Powered Business Transformation",
       subtitle: "Revolutionize your operations with cutting-edge machine learning and automation solutions.",
-      overlay: "from-green-900/80 to-blue-900/80"
+      // overlay: "from-green-900/80 to-blue-900/80"
     },
     {
       id: 3,
       image: "/AI2.jpg",
       title: "Next-Generation Cloud Solutions",
       subtitle: "Scalable, secure, and intelligent cloud infrastructure for modern enterprises.",
-      overlay: "from-purple-900/80 to-indigo-900/80"
+      // overlay: "from-purple-900/80 to-indigo-900/80"
     },
     {
       id: 4,
       image: "/AI3.jpg",
       title: "Expert AI Training & Support",
       subtitle: "Empower your team with world-class AI education and 24/7 technical assistance.",
-      overlay: "from-indigo-900/80 to-blue-900/80"
+      // overlay: "from-indigo-900/80 to-blue-900/80"
     }
   ];
 
@@ -71,7 +71,10 @@ const Home = () => {
             {/* Background Image */}
             <div 
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${slide.image})` }}
+              style={{ 
+                backgroundImage: `url(${slide.image})`,
+                filter: 'blur(4px)'
+              }}
             />
             
             {/* Overlay */}

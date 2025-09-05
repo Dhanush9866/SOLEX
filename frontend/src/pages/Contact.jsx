@@ -69,8 +69,8 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-blue-100 to-blue-300 text-gray-900 py-16 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 dark:text-white">Contact Us</h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 dark:text-white">Contact Us</h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
               We're here to help you succeed in your tech career. Reach out to us for support, training, or guidance.
             </p>
           </div>
@@ -78,21 +78,21 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16">
+      <section className="py-8 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             {/* Contact Form */}
             <div>
               <Card className="bg-white dark:bg-[#23272f] text-gray-900 dark:text-gray-100">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-blue-700 font-semibold dark:text-blue-300">Send Us a Message</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl md:text-2xl text-blue-700 font-semibold dark:text-blue-300">Send Us a Message</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit(onSubmit);
-                  }} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  }} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="dark:text-gray-300">Full Name *</Label>
                         <Input
@@ -172,24 +172,24 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-black mb-6 dark:text-white">Get in Touch</h2>
-                <p className="text-gray-700 text-lg leading-relaxed dark:text-gray-300">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-6 dark:text-white">Get in Touch</h2>
+                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed dark:text-gray-300">
                   We're here to help you succeed in your tech career. Whether you need job support, 
                   training, or guidance, our expert team is ready to assist you every step of the way.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-blue-100 p-3 rounded-lg">
                     <Mail className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1 text-blue-700 dark:text-blue-300">Email Support</h3>
-                    <p className="text-gray-700 dark:text-gray-300">contact@solnex.com</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">We respond within 24 hours</p>
+                    <h3 className="font-semibold text-base sm:text-lg mb-1 text-blue-700 dark:text-blue-300">Email Support</h3>
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">contact@solnex.com</p>
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">We respond within 24 hours</p>
                   </div>
                 </div>
 
@@ -246,10 +246,10 @@ const Contact = () => {
       </section>
 
       {/* Info Banner */}
-      <section className="py-12 bg-blue-100 dark:bg-[#23272f]">
+      <section className="py-8 sm:py-10 md:py-12 bg-blue-100 dark:bg-[#23272f]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-700 dark:text-blue-300">We're Here to Help!</h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-blue-700 dark:text-blue-300">We're Here to Help!</h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300">
             Our average response time is under 2 hours during business hours. For urgent matters, please contact us via phone or email.
           </p>
         </div>
