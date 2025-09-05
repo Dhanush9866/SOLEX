@@ -1,37 +1,34 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Home = () => {
-  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop&crop=center",
+      image: "/AI.jpg",
       title: "Engineering the Future with Software Intelligence",
       subtitle: "Building enterprise-grade AI, ML, and Generative AI solutions for tomorrow's digital leaders.",
       overlay: "from-blue-900/80 to-purple-900/80"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=600&fit=crop&crop=center",
+      image: "/AI1.jpg",
       title: "AI-Powered Business Transformation",
       subtitle: "Revolutionize your operations with cutting-edge machine learning and automation solutions.",
       overlay: "from-green-900/80 to-blue-900/80"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1200&h=600&fit=crop&crop=center",
+      image: "/AI2.jpg",
       title: "Next-Generation Cloud Solutions",
       subtitle: "Scalable, secure, and intelligent cloud infrastructure for modern enterprises.",
       overlay: "from-purple-900/80 to-indigo-900/80"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=600&fit=crop&crop=center",
+      image: "/AI3.jpg",
       title: "Expert AI Training & Support",
       subtitle: "Empower your team with world-class AI education and 24/7 technical assistance.",
       overlay: "from-indigo-900/80 to-blue-900/80"
@@ -90,23 +87,7 @@ const Home = () => {
                   <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-delay">
                     {slide.subtitle}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay-2">
-                    <Button
-                      size="lg"
-                      className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3"
-                      onClick={() => navigate("/register")}
-                    >
-                      Get Started Today
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="bg-white/20 backdrop-blur-sm text-white border-white hover:bg-white/30 font-bold"
-                      onClick={() => navigate("/services")}
-                    >
-                      View Services
-                    </Button>
-                  </div>
+                  
                 </div>
               </div>
             </div>

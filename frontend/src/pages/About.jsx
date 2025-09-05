@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Target, Heart, Award, Clock, Shield, Mail, Phone, MapPin, HelpCircle } from 'lucide-react';
+import { Users, Target, Heart, Award, Clock, Shield, Mail, Phone, MapPin } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const About = () => {
@@ -122,75 +122,6 @@ Engineering to help enterprises build scalable, intelligent, and future-ready sy
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-16 bg-gray-50 dark:bg-[#23272f]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
-                  <Users className="h-6 w-6 mr-3 text-blue-400" />
-                  Careers
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-                  At SOLNEX, we believe our people are our greatest strength. We offer an environment where innovation, collaboration, and learning thrive. By joining us, you become part of a team that is shaping the future with Artificial Intelligence, Data, and Software Engineering solutions.
-                  <br />
-                  We provide opportunities to work on cutting-edge technologies, grow your skills with continuous learning programs, and contribute to impactful projects across industries. If you are passionate about solving real-world problems and want to build a career that makes a difference, SOLNEX is the place for you.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
-                  <Award className="h-6 w-6 mr-3 text-blue-400" />
-                  Leadership
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-                  At SOLNEX, leadership means driving innovation with a clear vision, empowering teams to excel, and building trust with our clients and partners. Guided by strong values and forward-thinking strategy, our leadership team combines technology expertise, industry experience, and entrepreneurial spirit to position SOLNEX as a global force in AI and digital transformation.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
-                  <Target className="h-6 w-6 mr-3 text-blue-400" />
-                  Our Mission
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-                  To pioneer responsible and future-ready AI innovations including explainable AI 
-                  and AI-powered business automation. We empower enterprises to achieve automation, 
-                  efficiency, and competitive advantage in today's data-driven world.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-black dark:border-white text-center hover:shadow-2xl transition-shadow hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer bg-white dark:bg-[#23272f]">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center text-blue-700 font-semibold dark:text-blue-300">
-                  <Heart className="h-6 w-6 mr-3 text-blue-400" />
-                  Our Vision
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-                Our vision
-
-Our vision is to become a global leader in Artificial Intelligence, Data, and Digital Solutions, empowering enterprises and individuals to leverage technology for smarter decisions, intelligent automation, and sustainable growth.
-We aim to build future-ready innovations that bridge the gap between business and technology, transforming industries and creating lasting impact worldwide
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Values Section */}
       <section className="py-16">
@@ -248,7 +179,7 @@ We aim to build future-ready innovations that bridge the gap between business an
                 <Users className="h-8 w-8" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-lg dark:text-white">Dr. Sarah Chen</div>
+                <div className="font-semibold text-lg dark:text-white">SaiReddy</div>
                 <div className="text-blue-200">Founder & Chief AI Officer</div>
               </div>
             </div>
@@ -256,26 +187,6 @@ We aim to build future-ready innovations that bridge the gap between business an
         </div>
       </section>
 
-      {/* FAQ Link */}
-      <div className="flex justify-center py-12">
-        <div className="relative w-full max-w-xl">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-[#23272f] dark:to-blue-900 border border-blue-200 dark:border-blue-700 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center">
-            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-950 mb-4 shadow">
-              <HelpCircle className="h-8 w-8 text-blue-500" />
-            </div>
-            <h3 className="font-bold text-2xl mb-2 text-blue-800 dark:text-blue-200">Have Questions?</h3>
-            <p className="text-gray-700 mb-6 dark:text-gray-300">
-              Check out our frequently asked questions for quick answers to common inquiries.
-            </p>
-            <a
-              href="/?scroll=faq"
-              className="inline-block px-8 py-3 rounded-lg bg-blue-700 text-white font-semibold shadow-md hover:bg-blue-800 transition-colors border-2 border-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 dark:border-blue-500 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-              View FAQ
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
