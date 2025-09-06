@@ -174,18 +174,22 @@ const Home = () => {
                   </span>
                 </button>
                 {showLinks.section1 && (
-                  <div className="mt-3 space-y-2">
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Medical image Analysis
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Medical image Analysis</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • EHR Mining
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>EHR Mining</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Disease prediction Models
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Disease prediction Models</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Time series forecasting
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Time series forecasting</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
                   </div>
                 )}
@@ -261,21 +265,26 @@ const Home = () => {
                   </span>
                 </button>
                 {showLinks.section2 && (
-                  <div className="mt-3 space-y-2">
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Fraud Detection Algorithms
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Fraud Detection Algorithms</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Credit Risk Scoring
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Credit Risk Scoring</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Anomaly detection
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Anomaly detection</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Time series forecasting for market trends
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Time series forecasting for market trends</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Document Analysis
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Document Analysis</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
                   </div>
                 )}
@@ -345,21 +354,26 @@ const Home = () => {
                   </span>
                 </button>
                 {showLinks.section3 && (
-                  <div className="mt-3 space-y-2">
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Computer vision
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Computer vision</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Predictive maintenance
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Predictive maintenance</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Sensor Data analysis
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Sensor Data analysis</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Object Detection & Tracking
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Object Detection & Tracking</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Traffic flow Optimization
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Traffic flow Optimization</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
                   </div>
                 )}
@@ -429,18 +443,22 @@ const Home = () => {
                   </span>
                 </button>
                 {showLinks.section4 && (
-                  <div className="mt-3 space-y-2">
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Recommendation systems
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Recommendation systems</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Customer segmentation
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Customer segmentation</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Demand forecasting
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Demand forecasting</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
-                    <div className="text-sm text-gray-600 hover:text-blue-600 cursor-pointer transition-colors duration-200">
-                      • Chatbots & Virtual shopping Assistants
+                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
+                      <span>Chatbots & Virtual shopping Assistants</span>
+                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
                     </div>
                   </div>
                 )}
