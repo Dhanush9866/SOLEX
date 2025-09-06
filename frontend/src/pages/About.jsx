@@ -69,21 +69,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-8 sm:py-12 md:py-16 bg-gray-50 dark:bg-[#23272f]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-1 sm:mb-2 dark:text-blue-300">
-                  {counts[index]}{stat.suffix}
-                </div>
-                <div className="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Story Section */}
       <section className="py-8 sm:py-12 md:py-16">
