@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200 text-gray-900">
+    <footer className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 border-t border-gray-200 text-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
 
@@ -62,7 +62,10 @@ const Footer = () => {
 
           {/* Resources */}
           <div className="space-y-3 sm:space-y-4">
-            <h3 className="font-semibold text-base sm:text-lg text-black">Resources</h3>
+            <h3 className="font-semibold text-base sm:text-lg text-black pb-1 relative">
+              <span className="relative z-10">Resources</span>
+              <div className="absolute bottom-0 left-0 w-3/4 h-0.5 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 rounded-full"></div>
+            </h3>
             <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link to="/blog" className="text-gray-700 hover:text-blue-700 text-xs sm:text-sm transition-all duration-300 hover:translate-x-1 flex items-center group">
@@ -87,7 +90,10 @@ const Footer = () => {
 
           {/* Helpful Resources */}
           <div className="space-y-3 sm:space-y-4">
-            <h3 className="font-semibold text-base sm:text-lg text-black">Helpful Resources</h3>
+            <h3 className="font-semibold text-base sm:text-lg text-black pb-1 relative">
+              <span className="relative z-10">Helpful Resources</span>
+              <div className="absolute bottom-0 left-0 w-3/4 h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full"></div>
+            </h3>
             <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link to="/trainings" onClick={handleTrainingsClick} className="text-gray-700 hover:text-blue-700 text-xs sm:text-sm transition-all duration-300 hover:translate-x-1 flex items-center group">
