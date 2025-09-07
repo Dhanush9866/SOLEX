@@ -165,31 +165,23 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section1')}
-                  className="inline-flex items-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 hover:text-blue-800 hover:border-blue-300 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
-                  <span className="mr-2">🔗</span>
-                  Links
-                  <span className="ml-2 transform transition-transform duration-200">
-                    {showLinks.section1 ? '▲' : '▼'}
-                  </span>
+                  Links {showLinks.section1 ? '▲' : '▼'}
                 </button>
                 {showLinks.section1 && (
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Medical image Analysis</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Medical image Analysis &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>EHR Mining</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      EHR Mining &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Disease prediction Models</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Disease prediction Models &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Time series forecasting</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Time series forecasting &gt;
                     </div>
                   </div>
                 )}
@@ -256,35 +248,26 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section2')}
-                  className="inline-flex items-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 hover:text-blue-800 hover:border-blue-300 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
-                  <span className="mr-2">🔗</span>
-                  Links
-                  <span className="ml-2 transform transition-transform duration-200">
-                    {showLinks.section2 ? '▲' : '▼'}
-                  </span>
+                  Links {showLinks.section2 ? '▲' : '▼'}
                 </button>
                 {showLinks.section2 && (
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Fraud Detection Algorithms</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Fraud Detection Algorithms &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Credit Risk Scoring</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Credit Risk Scoring &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Anomaly detection</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Anomaly detection &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Time series forecasting for market trends</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Time series forecasting for market trends &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Document Analysis</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Document Analysis &gt;
                     </div>
                   </div>
                 )}
@@ -345,35 +328,26 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section3')}
-                  className="inline-flex items-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 hover:text-blue-800 hover:border-blue-300 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
-                  <span className="mr-2">🔗</span>
-                  Links
-                  <span className="ml-2 transform transition-transform duration-200">
-                    {showLinks.section3 ? '▲' : '▼'}
-                  </span>
+                  Links {showLinks.section3 ? '▲' : '▼'}
                 </button>
                 {showLinks.section3 && (
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Computer vision</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Computer vision &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Predictive maintenance</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Predictive maintenance &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Sensor Data analysis</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Sensor Data analysis &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Object Detection & Tracking</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Object Detection & Tracking &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Traffic flow Optimization</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Traffic flow Optimization &gt;
                     </div>
                   </div>
                 )}
@@ -434,31 +408,23 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section4')}
-                  className="inline-flex items-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 hover:text-blue-800 hover:border-blue-300 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
-                  <span className="mr-2">🔗</span>
-                  Links
-                  <span className="ml-2 transform transition-transform duration-200">
-                    {showLinks.section4 ? '▲' : '▼'}
-                  </span>
+                  Links {showLinks.section4 ? '▲' : '▼'}
                 </button>
                 {showLinks.section4 && (
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Recommendation systems</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Recommendation systems &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Customer segmentation</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Customer segmentation &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Demand forecasting</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Demand forecasting &gt;
                     </div>
-                    <div className="flex items-center text-base font-semibold text-gray-800 hover:text-green-600 cursor-pointer transition-colors duration-200 group">
-                      <span>Chatbots & Virtual shopping Assistants</span>
-                      <span className="ml-2 text-blue-500 group-hover:text-blue-600">&gt;</span>
+                    <div className="text-base font-bold text-gray-600 hover:text-blue-600 cursor-pointer">
+                      Chatbots & Virtual shopping Assistants &gt;
                     </div>
                   </div>
                 )}
