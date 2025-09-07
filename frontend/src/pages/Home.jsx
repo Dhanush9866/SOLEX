@@ -165,7 +165,7 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section1')}
-                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
+                  className="px-3 py-1 text-sm font-bold text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
                   Links {showLinks.section1 ? '▲' : '▼'}
                 </button>
@@ -248,7 +248,7 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section2')}
-                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
+                  className="px-3 py-1 text-sm font-bold text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
                   Links {showLinks.section2 ? '▲' : '▼'}
                 </button>
@@ -328,7 +328,7 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section3')}
-                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
+                  className="px-3 py-1 text-sm font-bold text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
                   Links {showLinks.section3 ? '▲' : '▼'}
                 </button>
@@ -408,7 +408,7 @@ const Home = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => toggleLinks('section4')}
-                  className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 cursor-pointer"
+                  className="px-3 py-1 text-sm font-bold text-blue-600 hover:text-blue-800 cursor-pointer"
                 >
                   Links {showLinks.section4 ? '▲' : '▼'}
                 </button>
