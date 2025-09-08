@@ -9,7 +9,7 @@ const {
 
 const router = express.Router();
 
-router.get("/", authenticateJWT, isAdmin, getAllTrainings);
+router.get("/",  getAllTrainings);
 router.post("/", authenticateJWT, isAdmin, createTraining);
 router.put("/:id", authenticateJWT, isAdmin, updateTraining);
 router.delete("/:id", authenticateJWT, isAdmin, deleteTraining);
