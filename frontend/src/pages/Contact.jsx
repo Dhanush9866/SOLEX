@@ -34,12 +34,13 @@ const Contact = () => {
 
   const subjects = [
     'General Inquiry',
-    'Job Support',
-    'Training Programs',
-    'Interview Support',
-    'Partnership',
-    'Technical Issue',
-    'Other'
+    'Technical Support',
+    'Training & Mentorship',
+    'Business / Partnership',
+    'Product Demo Request',
+    'Feedback / Suggestions',
+    'Shedule a demo',
+    'Product/Service Enquiry',
   ];
 
   const onSubmit = async (formData) => {
@@ -66,11 +67,24 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-100 to-blue-300 text-gray-900 py-16 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 dark:text-white">Contact Us</h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
+      <section className="relative py-24 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `url('/contactus.jpg')`,
+            filter: 'blur(1px)'
+          }}
+        />
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" />
+        
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-[600px]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contact Us</h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto font-medium">
               We're here to help you succeed in your tech career. Reach out to us for support, training, or guidance.
             </p>
           </div>
@@ -188,7 +202,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg mb-1 text-blue-700 dark:text-blue-300">Email Support</h3>
-                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">contact@solnex.com</p>
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">solnexx.official@gmail.com</p>
                     <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">We respond within 24 hours</p>
                   </div>
                 </div>
@@ -199,7 +213,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1 text-blue-700 dark:text-blue-300">Phone Support</h3>
-                    <p className="text-gray-700 dark:text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-700 dark:text-gray-300">97017961957</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Mon-Fri: 9 AM - 6 PM EST</p>
                   </div>
                 </div>
@@ -222,24 +236,20 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1 text-blue-700 dark:text-blue-300">Service Area</h3>
-                    <p className="text-gray-700 dark:text-gray-300">Remote Support Available Worldwide</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Supporting professionals globally</p>
+                    <p className="text-gray-700 dark:text-gray-300">
+                    🌐 Operating Globally</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Headquarters
+
+SOLNEX Pvt Ltd <br />
+D. No: 5-12/1, Near Tech Valley Towers <br />
+Madhurawada IT Park, Visakhapatnam – 530048 <br />
+Andhra Pradesh, India
+</p>
                   </div>
                 </div>
               </div>
 
-              {/* FAQ Link */}
-              <Card className="hover:shadow-2xl transition-shadow hover:scale-90 transition-transform durtion-300 ease-in-out cursor-pointer border-black dark:border-white bg-white dark:bg-[#23272f] text-gray-900 dark:text-gray-100">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-lg mb-3 dark:text-white">Have Questions?</h3>
-                  <p className="text-gray-600 mb-4 dark:text-gray-300">
-                    Check out our frequently asked questions for quick answers to common inquiries.
-                  </p>
-                  <Button variant="outline" className="w-full bg-white text-blue-700 border-blue-700 hover:bg-blue-50 font-bold dark:bg-[#23272f] dark:text-blue-300 dark:border-blue-300 dark:hover:bg-[#23272f]" asChild>
-                    <Link to="/?scroll=faq">View FAQ</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+             
             </div>
           </div>
         </div>
