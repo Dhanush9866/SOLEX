@@ -240,10 +240,10 @@ const Contact = () => {
                     🌐 Operating Globally</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Headquarters
 
-SOLNEX Pvt Ltd <br />
-D. No: 5-12/1, Near Tech Valley Towers <br />
-Madhurawada IT Park, Visakhapatnam – 530048 <br />
-Andhra Pradesh, India
+SOLNEX Pvt Ltd, <br />
+D. No: 5-12/1, Near Tech Valley Towers,<br />
+Madhurawada IT Park, Visakhapatnam – 530048,<br />
+Andhra Pradesh, India.
 </p>
                   </div>
                 </div>

@@ -82,4 +82,41 @@ const sendOTPEmail = async (email, otp, userType = "user") => {
 module.exports = {
   generateOTP,
   sendOTPEmail,
+  // Send Contact form submission to admin
+  sendContactEmail: async (contact, adminEmail) => {
+    const { name, email, phone, subject, message } = contact;
+    const toEmail = adminEmail || process.env.ADMIN_EMAIL || process.env.EMAIL_USER || "laptoptest7788@gmail.com";
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER || "laptoptest7788@gmail.com",
+      to: toEmail,
+      replyTo: email,
+      subject: `New Contact Submission: ${subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; padding: 20px;">
+          <div style="background:#0ea5e9; color:#fff; padding:16px 20px; border-radius:8px 8px 0 0;">
+            <h2 style="margin:0;">New Contact Message</h2>
+          </div>
+          <div style="border:1px solid #e5e7eb; border-top:0; padding:20px; border-radius:0 0 8px 8px; background:#ffffff;">
+            <p style="margin:0 0 8px 0;"><strong>Name:</strong> ${name}</p>
+            <p style="margin:0 0 8px 0;"><strong>Email:</strong> ${email}</p>
+            <p style="margin:0 0 8px 0;"><strong>Phone:</strong> ${phone}</p>
+            <p style="margin:16px 0 8px 0;"><strong>Subject:</strong> ${subject}</p>
+            <div style="margin-top:12px; padding:12px; background:#f8fafc; border:1px solid #e5e7eb; border-radius:6px; white-space:pre-wrap;">
+              ${message}
+            </div>
+          </div>
+          <p style="color:#6b7280; font-size:12px; text-align:center; margin-top:12px;">This email was sent automatically by the contact form.</p>
+        </div>
+      `,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      return true;
+    } catch (error) {
+      console.error("Contact email sending failed:", error);
+      return false;
+    }
+  },
 };
