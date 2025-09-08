@@ -85,7 +85,7 @@ const Contact = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contact Us</h1>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto font-medium">
-              We're here to help you succeed in your tech career. Reach out to us for support, training, or guidance.
+              We’re here to empower your tech journey. Whether you need expert guidance, enterprise solutions, training, or technical support — our team at SOLNEX is ready to help you every step of the way
             </p>
           </div>
         </div>
@@ -190,8 +190,7 @@ const Contact = () => {
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-6 dark:text-white">Get in Touch</h2>
                 <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed dark:text-gray-300">
-                  We're here to help you succeed in your tech career. Whether you need job support, 
-                  training, or guidance, our expert team is ready to assist you every step of the way.
+                  We’re here to support your success in the tech world. Whether you need product guidance, enterprise solutions, or technical assistance, our expert team is committed to helping you at every step
                 </p>
               </div>
 

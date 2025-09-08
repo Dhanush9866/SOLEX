@@ -194,7 +194,7 @@ const Home = () => {
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
                 <div className="relative overflow-hidden">
                   <img
-                    src="/placeholder.svg"
+                    src="/health.jpg"
                     alt="Healthcare Data Analytics"
                     className="w-full h-48 object-cover"
                   />
@@ -280,7 +280,7 @@ const Home = () => {
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
               <div className="relative overflow-hidden">
                 <img
-                    src="/placeholder.svg"
+                    src="/financial Ai.jpg"
                     alt="Financial AI Powered Insights"
                     className="w-full h-48 object-cover"
                   />
@@ -360,7 +360,7 @@ const Home = () => {
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
               <div className="relative overflow-hidden">
                 <img
-                    src="/placeholder.svg"
+                    src="/automob.jpg"
                     alt="Autonomous Mobility"
                     className="w-full h-48 object-cover"
                   />
@@ -437,7 +437,7 @@ const Home = () => {
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
               <div className="relative overflow-hidden">
                 <img
-                    src="/placeholder.svg"
+                    src="/AI powered.jpg"
                     alt="AI Powered Industrial Automation"
                     className="w-full h-48 object-cover"
                   />
