@@ -18,12 +18,12 @@ const generateOTP = () => {
 const sendOTPEmail = async (email, otp, userType = "user") => {
   const isAdmin = userType === "admin";
   const subject = isAdmin
-    ? "Admin Password Reset OTP - SkillTwin"
-    : "Password Reset OTP - SkillTwin";
+    ? "Admin Password Reset OTP - Solnex"
+    : "Password Reset OTP - Solnex";
   const title = isAdmin ? "Admin Password Reset" : "Password Reset";
   const description = isAdmin
-    ? "You requested a password reset for your SkillTwin Admin account. Use the OTP below to verify your identity and create a new password."
-    : "You requested a password reset for your SkillTwin account. Use the OTP below to verify your identity and create a new password.";
+    ? "You requested a password reset for your Solnex Admin account. Use the OTP below to verify your identity and create a new password."
+    : "You requested a password reset for your Solnex account. Use the OTP below to verify your identity and create a new password.";
 
   const mailOptions = {
     from: process.env.EMAIL_USER || "laptoptest7788@gmail.com",
