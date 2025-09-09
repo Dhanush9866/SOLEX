@@ -32,7 +32,7 @@ const sendOTPEmail = async (email, otp, userType = "user") => {
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-          <h1 style="margin: 0; font-size: 28px;">SkillTwin${isAdmin ? " Admin" : ""}</h1>
+          <h1 style="margin: 0; font-size: 28px;">Solnex{isAdmin ? " Admin" : ""}</h1>
           <p style="margin: 10px 0 0 0; opacity: 0.9;">${title} Request</p>
         </div>
         
@@ -63,7 +63,7 @@ const sendOTPEmail = async (email, otp, userType = "user") => {
         
         <div style="text-align: center; margin-top: 20px; color: #999; font-size: 12px;">
           <p>This email was sent to ${email}</p>
-          <p>&copy; 2024 SkillTwin. All rights reserved.</p>
+          <p>&copy; 2025 Solnex. All rights reserved.</p>
         </div>
       </div>
     `,
